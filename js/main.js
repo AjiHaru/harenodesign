@@ -26,7 +26,6 @@
                 getBoundingClientRect().top + fadeinTarget[i].clientHeight * .6
             /*↑ブラウザの上端からの距離を求める処理*/
             /*↑要素の6割の高さを足す (=要素がある程度見えてからアニメーションがつくようにする)*/
-            console.log(getElementDistance)
             if (window.innerHeight > getElementDistance) {
                 fadeinTarget[i].classList.add("show");
             }
