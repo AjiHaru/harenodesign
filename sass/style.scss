@@ -1,0 +1,632 @@
+@mixin tab-w {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  line-height: 1.5;
+  letter-spacing: 0.05rem;
+  color: #363636;
+  font-family: "Noto Sans", "Noto Sans JP", "Meiryo", sans-serif;
+}
+
+.wrapper {
+  padding: 80px 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include tab {
+    max-width: fit-content;
+    padding: 80px 40px;
+  }
+  @include sp {
+    max-width: fit-content;
+    padding: 40px 20px;
+  }
+}
+
+#js-header {
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #ffffff;
+  .title {
+    display: flex;
+    align-items: center;
+  }
+  .title-name {
+    font-size: 1.5rem;
+    @include sp {
+      font-size: 1rem;
+    }
+  }
+  img {
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    @include sp {
+      width: 38px;
+    }
+  }
+  @include tab {
+    padding: 0 40px;
+  }
+  @include sp {
+    padding: 0 20px;
+  }
+}
+
+// ハンバーガーメニューウィンドウ
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  position: fixed;
+  top: -300px;
+  left: 0;
+  z-index: 50;
+  padding: 100px;
+  background-color: #e8d575;
+  color: #363636;
+  visibility: hidden;
+  transition: all 0.5s ease-out;
+  .nav-link {
+    margin: 0 auto;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    a {
+      display: block;
+      padding: 0 20px;
+    }
+  }
+  .nav-link:hover {
+    color: #ffffff;
+    background-color: #363636;
+    transition: all 0.5s ease-out;
+  }
+}
+
+.nav-menu.active {
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+// ハンバーガーボタン
+.menubtn {
+  width: 45px;
+  height: 80px;
+  display: block;
+  cursor: pointer;
+  transition: 0.4s;
+  position: relative;
+  .line-1,
+  .line-2 {
+    width: 40px;
+    height: 2px;
+    background: #363636;
+    position: absolute;
+    right: 3px;
+    transition: 0.4s ease-in-out;
+    @include sp {
+      width: 30px;
+    }
+  }
+  .line-1 {
+    /*1本目の線*/
+    top: 25px;
+    @include sp {
+      top: 35px;
+    }
+  }
+  .line-2 {
+    /*2本目の線*/
+    top: 35px;
+    @include sp {
+      top: 43px;
+    }
+  }
+  .menu {
+    position: absolute;
+    top: 45px;
+    font-size: 1rem;
+    right: 0;
+    @include sp {
+      font-size: 0.75rem;
+      top: 48px;
+    }
+  }
+  .close {
+    position: absolute;
+    top: 45px;
+    font-size: 1rem;
+    right: 0;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    @include sp {
+      font-size: 0.75rem;
+      top: 48px;
+    }
+  }
+}
+
+// ×ボタン
+.menubtn.active {
+  z-index: 100;
+  .line-1 {
+    transform: rotate(35deg);
+    top: 30px;
+    @include sp {
+      top: 36px;
+    }
+  }
+  .line-2 {
+    transform: rotate(-35deg);
+    top: 30px;
+    @include sp {
+      top: 36px;
+    }
+  }
+  .close {
+    opacity: 1;
+  }
+  .menu {
+    opacity: 0;
+  }
+}
+
+// mainvisual
+.main-sec {
+  background-color: #b0e0e6;
+  .mainvisual {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 250px 100px;
+    @include tab {
+      padding: 100px 40px;
+      display: block;
+    }
+    .top-text1 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      font-weight: bold;
+      @include tab {
+        font-size: 1rem;
+      }
+      @include sp {
+        font-size: 0.75rem;
+      }
+    }
+    .top-text2 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      font-weight: bold;
+      margin-bottom: 40px;
+      @include tab {
+        font-size: 2rem;
+      }
+      @include sp {
+        font-size: 1.45rem;
+      }
+    }
+    .top-imgbox {
+      @include tab {
+        text-align: center;
+      }
+      .top-img {
+        max-width: 500px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+#concept,
+#service,
+#about,
+#works,
+#contact,
+.another-top {
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-align: center;
+    @include sp {
+      font-size: 2rem;
+    }
+  }
+  .sub-title {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 40px;
+    @include sp {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// フェードイン
+.item-fadein {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: all 1s;
+}
+.item-fadein.show {
+  opacity: 1;
+  transform: none;
+}
+
+// concept
+.concept-sec {
+  background-color: #fafdfd;
+  #concept {
+    .concept-flex {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      align-items: center;
+      margin: 0 auto;
+      .concept-imgbox {
+        .concept-img {
+          max-width: 416px;
+          width: 100%;
+        }
+        @include tab {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+      }
+      .concept-text {
+        @include tab {
+          width: fit-content;
+          margin: 0 auto;
+        }
+      }
+      .concept-text1 {
+        margin-bottom: 2rem;
+      }
+      @include tab {
+        display: block;
+      }
+    }
+  }
+}
+
+// service
+.service-sec {
+  background-color: #f3fafb;
+  #service {
+    .service-flex {
+      display: flex;
+      justify-content: space-around;
+      @include tab {
+        display: block;
+      }
+      .service-content {
+        display: block;
+        width: calc((100% - 280px) / 3);
+        @include tab {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+        .service-imgbox {
+          text-align: center;
+          .service-img {
+            max-width: 240px;
+            width: 100%;
+            margin-bottom: 16px;
+          }
+        }
+        .service-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 16px;
+        }
+        .service-detail {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// about
+.about-sec {
+  background-color: #fafdfd;
+  #about {
+    .about-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+      gap: 20px;
+      .icon-box {
+        aspect-ratio: 40 / 37;
+        width: 72px;
+        .about-icon {
+          width: 100%;
+        }
+      }
+      .my-name {
+        font-size: 1.5rem;
+      }
+      .my-job {
+        font-size: 1rem;
+      }
+    }
+    .about-detail {
+      padding-bottom: 40px;
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+}
+
+.detail-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 33px;
+  background-color: #b0e0e6;
+  font-size: 1rem;
+  a {
+    padding: 1rem 4rem;
+  }
+  a::after {
+    display: inline-block;
+    transform: rotate(45deg);
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    border-top: 2px solid #363636;
+    border-right: 2px solid #363636;
+    content: "";
+  }
+}
+.detail-button:hover {
+  background-color: #363636;
+  color: #ffffff;
+  opacity: 0.85;
+  a::after {
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+  }
+}
+
+// about詳細ページ
+.another-top {
+  background-color: #b0e0e6;
+  margin-top: 80px;
+}
+.page-about-flex {
+  display: flex;
+  gap: 100px;
+  border-color: #fafdfd;
+  @include tab-w {
+    display: block;
+  }
+  .page-about-img {
+    max-width: 400px;
+    margin: 0 auto;
+    @include sp {
+      max-width: 200px;
+    }
+    .about-photo {
+      width: 100%;
+    }
+  }
+  .page-about-text {
+    position: relative;
+    .profile {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .name-flex {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 16px;
+    }
+    .my-intro {
+      margin-bottom: 24px;
+    }
+    .profile-flex {
+      display: flex;
+      gap: 30px;
+      @include tab-w {
+        flex-direction: column;
+        gap: 0;
+      }
+      @include sp {
+        font-size: 0.95rem;
+      }
+      .profile-items {
+        border-bottom: 1px solid #363636;
+        font-weight: normal;
+        line-height: 2.5rem;
+        min-width: 11rem;
+      }
+      .profile-detail {
+        line-height: 2.5rem;
+        @include tab-w {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// works
+.works-sec {
+  background-color: #f3fafb;
+  #works {
+    max-width: 900px;
+    .slide {
+      display: flex;
+      align-items: center;
+      .work-content {
+        margin: 0 auto;
+        display: block;
+        .work-imgbox {
+          aspect-ratio: 464 / 238;
+          margin: 0 auto 40px;
+          max-width: 464px;
+          .work-img {
+            width: 100%;
+          }
+        }
+        .work-flex {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 40px;
+          @include tab {
+            display: block;
+            margin-bottom: 40px;
+          }
+          .language {
+            border: 1px solid #363636;
+            padding: 0.25rem;
+          }
+          .language,
+          .site-name {
+            @include tab {
+              display: block;
+              width: fit-content;
+              line-height: 1.25rem;
+              margin: 0 auto 1rem;
+            }
+            @include sp {
+              font-size: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.slide-arrow {
+  cursor: pointer;
+  @include sp {
+    width: 30px;
+  }
+}
+
+// work詳細ページ
+.work-list {
+  .work-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    @include tab {
+      display: block;
+      margin: 0 auto;
+    }
+    .work-list-img {
+      max-width: 400px;
+      aspect-ratio: 540 / 238;
+      margin: 0 auto;
+      .work-site {
+        width: 100%;
+      }
+    }
+  }
+}
+.work-text {
+  .work-list-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 5.5rem;
+    @include sp {
+      font-size: 1.25em;
+    }
+  }
+  .site-detail {
+    line-height: 2rem;
+    overflow-wrap: anywhere;
+    @include sp {
+      font-size: 0.85em;
+      width: 100%;
+    }
+  }
+}
+
+.work-flex + .work-flex {
+  margin-top: 100px;
+}
+
+// contact
+.contact-sec {
+  background-color: #fafdfd;
+  #contact {
+    .message {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .contact-imgbox {
+      text-align: center;
+      margin-bottom: 40px;
+      .contact-img {
+        width: 100px;
+      }
+    }
+  }
+}
+
+// contact詳細ページ
+.contact-body {
+  .contact-message {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  iframe {
+    width: 100%;
+    height: 900px;
+    margin-bottom: 40px;
+  }
+}
+
+// footer
+footer {
+  background-color: #b0e0e6;
+  line-height: 5rem;
+  .footer-text {
+    text-align: center;
+  }
+}
