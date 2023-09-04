@@ -473,6 +473,12 @@ body {
       display: flex;
       gap: 1rem;
       margin-bottom: 16px;
+      .name-en {
+      font-size: 1.25rem;
+      }
+      .name-jp {
+      font-size: 0.85rem;
+      }
     }
     .my-intro {
       margin-bottom: 24px;
