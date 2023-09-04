@@ -526,11 +526,12 @@ body {
   gap: 1rem;
   margin-bottom: 16px;
 }
-.page-about-flex .page-about-text .name-flex .name-en {
+.page-about-flex .page-about-text .name-flex .name-jp {
   font-size: 1.25rem;
 }
-.page-about-flex .page-about-text .name-flex .name-jp {
-  font-size: 0.85rem;
+.page-about-flex .page-about-text .name-flex .name-en {
+  font-size: 1rem;
+  font-style: italic;
 }
 .page-about-flex .page-about-text .my-intro {
   margin-bottom: 24px;
