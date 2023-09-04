@@ -473,11 +473,12 @@ body {
       display: flex;
       gap: 1rem;
       margin-bottom: 16px;
-      .name-en {
+      .name-jp {
       font-size: 1.25rem;
       }
-      .name-jp {
-      font-size: 0.85rem;
+      .name-en {
+      font-size: 1rem;
+      font-style: italic;
       }
     }
     .my-intro {
