@@ -537,6 +537,11 @@ body {
 .page-about-flex .page-about-text .my-intro {
   margin-bottom: 24px;
 }
+@media (max-width: 500px) {
+  .page-about-flex .page-about-text .my-intro {
+    font-size: 0.85rem;
+  }
+}
 .page-about-flex .page-about-text .profile-flex {
   display: flex;
   gap: 30px;
@@ -549,7 +554,7 @@ body {
 }
 @media (max-width: 500px) {
   .page-about-flex .page-about-text .profile-flex {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 }
 .page-about-flex .page-about-text .profile-flex .profile-items {
