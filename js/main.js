@@ -23,9 +23,9 @@
     document.addEventListener("scroll", function () {
         for (let i = 0; i < fadeinTarget.length; i++) {
             const getElementDistance = fadeinTarget[i].
-                getBoundingClientRect().top + fadeinTarget[i].clientHeight * .6
+                getBoundingClientRect().top + fadeinTarget[i].clientHeight * .3
             /*↑ブラウザの上端からの距離を求める処理*/
-            /*↑要素の6割の高さを足す (=要素がある程度見えてからアニメーションがつくようにする)*/
+            /*↑要素の3割の高さを足す (=要素がある程度見えてからアニメーションがつくようにする)*/
             if (window.innerHeight > getElementDistance) {
                 fadeinTarget[i].classList.add("show");
             }
