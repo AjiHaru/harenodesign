@@ -337,6 +337,11 @@ body {
   width: 100%;
 }
 @media (max-width: 900px) {
+  .concept-sec #concept .concept-flex .concept-imgbox .concept-img {
+    max-width: 260px;
+  }
+}
+@media (max-width: 900px) {
   .concept-sec #concept .concept-flex .concept-imgbox {
     text-align: center;
     margin-bottom: 40px;
@@ -347,6 +352,11 @@ body {
     width: -moz-fit-content;
     width: fit-content;
     margin: 0 auto;
+  }
+}
+@media (max-width: 500px) {
+  .concept-sec #concept .concept-flex .concept-text {
+    font-size: 0.85rem;
   }
 }
 .concept-sec #concept .concept-flex .concept-text1 {
@@ -388,6 +398,11 @@ body {
   width: 100%;
   margin-bottom: 16px;
 }
+@media (max-width: 900px) {
+  .service-sec #service .service-flex .service-content .service-imgbox .service-img {
+    max-width: 150px;
+  }
+}
 .service-sec #service .service-flex .service-content .service-title {
   font-size: 1.25rem;
   font-weight: bold;
@@ -396,6 +411,11 @@ body {
 }
 .service-sec #service .service-flex .service-content .service-detail {
   font-size: 1rem;
+}
+@media (max-width: 500px) {
+  .service-sec #service .service-flex .service-content .service-detail {
+    font-size: 0.85rem;
+  }
 }
 
 .about-sec {
@@ -426,6 +446,11 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
+}
+@media (max-width: 500px) {
+  .about-sec #about .about-detail {
+    font-size: 0.85rem;
+  }
 }
 
 .detail-button {
@@ -601,9 +626,8 @@ body {
 
 .work-list .work-flex {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 40px;
+  justify-content: flex-start;
+  gap: 80px;
 }
 @media (max-width: 900px) {
   .work-list .work-flex {
@@ -614,12 +638,14 @@ body {
 .work-list .work-flex .work-list-img {
   max-width: 400px;
   aspect-ratio: 540/238;
-  margin: 0 auto;
 }
 .work-list .work-flex .work-list-img .work-site {
   width: 100%;
 }
 
+.work-text {
+  min-width: 300px;
+}
 .work-text .work-list-name {
   font-weight: bold;
   font-size: 1.25rem;
@@ -630,15 +656,21 @@ body {
     font-size: 1.25em;
   }
 }
-.work-text .site-detail {
+.work-text .site-detail1,
+.work-text .site-detail2 {
   line-height: 2rem;
   overflow-wrap: anywhere;
 }
 @media (max-width: 500px) {
-  .work-text .site-detail {
+  .work-text .site-detail1,
+  .work-text .site-detail2 {
     font-size: 0.85em;
     width: 100%;
   }
+}
+
+.site-detail2:hover {
+  border-bottom: 2px dotted #363636;
 }
 
 .work-flex + .work-flex {
